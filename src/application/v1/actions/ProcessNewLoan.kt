@@ -7,6 +7,7 @@ import io.ktor.response.respond
 
 suspend fun ApplicationCall.v1ProcessNewLoan() {
     val loan = receive<Loan>()
+    val userId = getUserId(request)
     // validate, map, process
     respond(Loan())
 }

@@ -7,6 +7,7 @@ import io.ktor.response.respond
 
 suspend fun ApplicationCall.v1GetFirstPayment() {
     val mixed = receive<Mixed>()
+    val userId = getUserId(request)
     // validate, map, process
     respond(Payment())
 }
