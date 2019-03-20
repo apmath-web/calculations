@@ -11,4 +11,8 @@ class Response {
     fun mergeWith(validation: Response) {
         messages.addAll(validation.messages)
     }
+
+    fun mergeWith(parentField: String, validation: Response) {
+        messages.addAll(validation.messages.map { Message("$parentField.${it.field}", it.text) })
+    }
 }

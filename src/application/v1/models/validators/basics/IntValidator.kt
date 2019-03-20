@@ -3,24 +3,17 @@ package com.apmath.application.v1.models.validators.basics
 import com.apmath.application.v1.models.validators.Message
 
 class IntValidator(
-    val field: String,
-    val required: Boolean = true,
-    val min: Int = Int.MIN_VALUE,
-    val max: Int = Int.MAX_VALUE
-): AbstractValidator() {
+    field: String,
+    private val min: Int = Int.MIN_VALUE,
+    private val max: Int = Int.MAX_VALUE
+): AbstractValidator(field) {
 
     override fun validate(value: Any?): Boolean {
 
-        if (value == null) {
-            if (!required) {
-                return true
-            }
-            response.addMessage(Message(field, MESSAGE_REQUIRED))
-            return false
-        }
-
+        // todo verify that Long and BigInt are pretty good with that condition
         if (value !is Int) {
             response.addMessage(Message(field, "Must be a number"))
+
             return false
         }
 
