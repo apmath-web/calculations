@@ -17,9 +17,10 @@ class ObjectValidator(
 
         validators.forEach {
             if (!members.containsKey(it.key)) {
-                throw MemberNotFoundException("${it.key} not found in $value")
+                throw MemberNotFoundException("${it.key} field not found in $value")
             }
-            if (!it.value.validate(members[it.key]!!.call())) {
+
+            if (!it.value.validate(members[it.key]!!.call(value))) {
                 isValid = false
                 response.mergeWith(it.key, it.value.response)
             }

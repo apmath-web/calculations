@@ -2,7 +2,7 @@ package com.apmath.application.v1.models.validators.basics
 
 import com.apmath.application.v1.models.validators.Message
 
-abstract class RequiredValidator(field: String): AbstractValidator(field) {
+class RequiredValidator(field: String): AbstractValidator(field) {
 
     override fun validate(value: Any?): Boolean {
 
