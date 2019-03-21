@@ -1,11 +1,8 @@
 package com.apmath.application.v1.models.validators.basics
 
-import com.apmath.application.v1.models.validators.Message
-
 class NullableValidator(
-    field: String,
     private val mustBeNull: Boolean = false
-): AbstractValidator(field) {
+): AbstractValidator() {
 
     private var continueValidation: Boolean = false
 
@@ -14,7 +11,8 @@ class NullableValidator(
 
         if (value !== null) {
             if (mustBeNull) {
-                response.addMessage(Message(field, "Must be null"))
+                addMessage("Must be null")
+
                 return false
             }
             continueValidation = true

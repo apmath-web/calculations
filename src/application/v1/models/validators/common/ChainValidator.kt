@@ -1,23 +1,22 @@
 package com.apmath.application.v1.models.validators.basics
 
 class ChainValidator(
-    field: String,
     private val validators: List<ValidatorInterface>
-): AbstractValidator(field) {
+): AbstractValidator() {
 
     override fun validate(value: Any?): Boolean {
-        var isValid = true
+        isValid = true
 
         for (validator in validators) {
             if (!validator.validate(value)) {
-                response.mergeWith(validator.response)
                 isValid = false
+                messages.addAll(validator.messages)
             }
             if (!validator.continueValidation()) {
                 break
             }
         }
 
-        return isValid
+        return isValid!!
     }
 }

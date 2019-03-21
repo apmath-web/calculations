@@ -1,17 +1,16 @@
 package com.apmath.application.v1.models.validators.basics
 
-import com.apmath.application.v1.models.validators.Message
-
-class RequiredValidator(field: String): AbstractValidator(field) {
+class RequiredValidator: AbstractValidator() {
 
     override fun validate(value: Any?): Boolean {
+        isValid = true
 
         if (value == null) {
-            response.addMessage(Message(field, "Must be not null"))
+            addMessage("Must be not null")
 
             return false
         }
 
-        return true
+        return isValid!!
     }
 }

@@ -1,18 +1,32 @@
 package com.apmath.application.v1.models.validators.basics
 
-import com.apmath.application.v1.models.validators.Response
+import com.apmath.application.v1.models.validators.basics.exceptions.IncorrectContinueVaidationOrderCallException
+
 
 abstract class AbstractValidator(
-    override val field: String,
     private val continueValidationOnFail: Boolean = false
 ) : ValidatorInterface {
 
-    override val response = Response()
+    override val messages: MutableList<MessageInterface> = arrayListOf()
+
+    /**
+     * Should be set upon validation process
+     */
+    protected var isValid: Boolean? = false
 
     override fun continueValidation(): Boolean {
-        if (response.messages.count() != 0) {
+        if (isValid == null) {
+            throw IncorrectContinueVaidationOrderCallException()
+        }
+        if (isValid == false) {
             return continueValidationOnFail
         }
         return true
+    }
+
+    protected fun addMessage(message: String)
+    {
+        isValid = false
+        messages.add(Message(message))
     }
 }

@@ -12,20 +12,20 @@ suspend fun ApplicationCall.v1GetAllPayments() {
 
     // base builder
     val builder = ObjectValidatorBuilder()
-        .append(IntValidator("amount", 1, 300))
-        .append(DateValidator("date"))
+        .append("amount", IntValidator(1, 300))
+        .append("date", DateValidator())
 
     // override
     val validator = builder
-        .prepend(RequiredValidator("amount"))
-        .prepend(RequiredValidator("date"))
-        .prepend(NullableValidator("term", true))
-        .prepend(NullableValidator("rounding", true))
+        .prepend("amount", RequiredValidator())
+        .prepend("date", RequiredValidator())
+        .prepend("term", NullableValidator(true))
+        .prepend("rounding", NullableValidator(true))
         .build()
 
 
     if (!validator.validate(loan)) {
-        respond(validator.response.messages)
+        respond(validator.messages)
     }
 
     // validate, map, process
