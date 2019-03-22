@@ -1,6 +1,6 @@
-package com.apmath.application.v1
+package com.apmath.calculations.application.v1
 
-import com.apmath.application.v1.actions.*
+import com.apmath.calculations.application.v1.actions.*
 import io.ktor.application.call
 import io.ktor.routing.*
 

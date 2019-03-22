@@ -1,7 +1,7 @@
-package com.apmath.application.v1.models.validators.basics.builders
+package com.apmath.calculations.application.v1.models.validators.basics.builders
 
-import com.apmath.application.v1.models.validators.ObjectValidator
-import com.apmath.application.v1.models.validators.basics.ValidatorInterface
+import com.apmath.calculations.application.v1.models.validators.ObjectValidator
+import com.apmath.calculations.application.v1.models.validators.basics.ValidatorInterface
 
 class ObjectValidatorBuilder {
     private val chains: MutableMap<String, ChainValidatorBuilderInterface> = hashMapOf()
