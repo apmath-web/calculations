@@ -1,8 +1,8 @@
 package com.apmath.calculations.application.v1.actions
 
 import com.apmath.calculations.application.v1.models.*
-import com.apmath.calculations.application.v1.models.validators.basics.*
-import com.apmath.calculations.application.v1.models.validators.basics.builders.*
+import com.apmath.validation.builders.ObjectValidatorBuilder
+import com.apmath.validation.simple.*
 import io.ktor.application.ApplicationCall
 import io.ktor.request.receive
 import io.ktor.response.respond
