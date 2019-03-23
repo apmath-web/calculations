@@ -1,4 +1,4 @@
-package com.apmath.application.v1.models
+package com.apmath.calculations.application.v1.models
 
 class Mixed {
     var loan: Loan? = null

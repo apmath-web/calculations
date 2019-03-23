@@ -1,6 +1,6 @@
-package com.apmath.application.v1.actions
+package com.apmath.calculations.application.v1.actions
 
-import com.apmath.module
+import com.apmath.calculations.module
 import io.ktor.http.*
 import kotlin.test.*
 import io.ktor.server.testing.*

@@ -1,3 +1,3 @@
-package com.apmath.domain
+package com.apmath.calculations.domain
 
 typealias Money = Int

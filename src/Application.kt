@@ -1,6 +1,6 @@
-package com.apmath
+package com.apmath.calculations
 
-import com.apmath.application.v1.v1
+import com.apmath.calculations.application.v1.v1
 import io.ktor.application.*
 import io.ktor.routing.*
 import io.ktor.locations.*
