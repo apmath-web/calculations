@@ -12,7 +12,7 @@ suspend fun ApplicationCall.v1GetAllPayments() {
 
     // base builder
     val builder = ObjectValidatorBuilder()
-        .append("amount", IntValidator(1, 300))
+        .append("amount", ComparableValidator(min = 1, max = 300))
         .append("date", DateValidator())
 
     // override
