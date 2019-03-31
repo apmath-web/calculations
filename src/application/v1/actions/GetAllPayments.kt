@@ -2,7 +2,6 @@ package com.apmath.calculations.application.v1.actions
 
 import com.apmath.calculations.application.v1.models.*
 import com.apmath.calculations.application.v1.validators.LoanBuilder
-import com.apmath.validation.builders.ObjectValidatorBuilder
 import com.apmath.validation.simple.*
 import io.ktor.application.ApplicationCall
 import io.ktor.request.receive
