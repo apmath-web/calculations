@@ -1,32 +1,28 @@
 package com.apmath.calculations.application.v1.actions
 
 import com.apmath.calculations.application.v1.models.*
-import com.apmath.validation.builders.ObjectValidatorBuilder
+import com.apmath.calculations.application.v1.validators.LoanBuilder
 import com.apmath.validation.simple.*
 import io.ktor.application.ApplicationCall
 import io.ktor.request.receive
 import io.ktor.response.respond
+import org.modelmapper.ModelMapper
 
 suspend fun ApplicationCall.v1GetAllPayments() {
     val loan = receive<Loan>()
 
-    // base builder
-    val builder = ObjectValidatorBuilder()
-        .append("amount", ComparableValidator(min = 1, max = 300))
-        .append("date", DateValidator())
-
-    // override
-    val validator = builder
+    val validator = LoanBuilder()
         .prepend("amount", RequiredValidator())
         .prepend("date", RequiredValidator())
         .prepend("term", NullableValidator(true))
         .prepend("rounding", NullableValidator(true))
         .build()
 
-
     if (!validator.validate(loan)) {
         respond(validator.messages)
     }
+
+    val mapper = ModelMapper()
 
     // validate, map, process
     respond(arrayListOf(Payment(), Payment()))
