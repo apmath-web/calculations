@@ -9,7 +9,7 @@ class MixedBuilder(
 ) : ObjectValidatorBuilder() {
     init {
         append("loan", loanBuilder.build())
-        append("amount", paymentBuilder.build())
+        append("payment", paymentBuilder.build())
         append("lastPayment", lastPaymentBuilder.build())
     }
 }
