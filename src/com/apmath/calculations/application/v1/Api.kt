@@ -31,10 +31,10 @@ private fun Routing.v1Calculations() {
         post("loan") {
             call.v1ProcessNewLoan()
         }
-        post("payment") {
+        post("amount") {
             call.v1GetFirstPayment()
         }
-        put("payment") {
+        put("amount") {
             call.v1GetNextPayment()
         }
     }
