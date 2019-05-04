@@ -9,9 +9,10 @@ import com.apmath.calculations.domain.payments.PresentLoan
 import com.apmath.calculations.domain.payments.PresentLoanInterface
 
 
-class PaymentsService(loanInitService: LoanInitServiceInterface) : AbstractPaymentsService(loanInitService) {
+class PaymentsService(loanInitService: LoanInitServiceInterface) : AbstractPaymentsService(loanInitService),
+    PaymentsServiceInterface {
 
-    fun generatePayments(originalLoan: OriginalLoanInterface): List<PaymentInterface> {
+    override fun generatePayments(originalLoan: OriginalLoanInterface): List<PaymentInterface> {
         val internalLoanData = loanInitService.init(originalLoan)
         return generatePayments(
             PresentLoan(
@@ -25,7 +26,7 @@ class PaymentsService(loanInitService: LoanInitServiceInterface) : AbstractPayme
         )
     }
 
-    fun generatePayments(presentLoan: PresentLoanInterface): List<PaymentInterface> {
+    override fun generatePayments(presentLoan: PresentLoanInterface): List<PaymentInterface> {
         val results: MutableList<PaymentInterface> = arrayListOf()
 
         var payment = getNextPayment(presentLoan, getLastPayment(presentLoan), Type.NEXT)
