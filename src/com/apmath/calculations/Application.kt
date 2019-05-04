@@ -1,13 +1,16 @@
 package com.apmath.calculations
 
 import com.apmath.calculations.application.v1.v1
-import io.ktor.application.*
-import io.ktor.routing.*
-import io.ktor.locations.*
-import io.ktor.features.*
-import io.ktor.gson.*
+import io.ktor.application.Application
+import io.ktor.application.install
+import io.ktor.features.ContentNegotiation
+import io.ktor.features.DefaultHeaders
+import io.ktor.gson.gson
+import io.ktor.locations.Locations
+import io.ktor.routing.Routing
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
+
 
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads

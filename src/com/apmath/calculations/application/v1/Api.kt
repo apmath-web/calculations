@@ -4,6 +4,7 @@ import com.apmath.calculations.application.v1.actions.*
 import io.ktor.application.call
 import io.ktor.routing.*
 
+
 internal fun Routing.v1() {
 
     v1Info()

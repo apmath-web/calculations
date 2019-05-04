@@ -1,6 +1,7 @@
 package com.apmath.calculations.application.v1.models
 
-import com.apmath.calculations.domain.Money
+import com.apmath.calculations.domain.data.Money
+
 
 class Payment {
     var date: String? = null
