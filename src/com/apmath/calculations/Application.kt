@@ -1,7 +1,7 @@
 package com.apmath.calculations
 
 import com.apmath.calculations.application.v1.v1
-import com.apmath.calculations.infrastructure.template
+import com.apmath.calculations.infrastructure.calculations
 import io.ktor.application.Application
 import io.ktor.application.install
 import io.ktor.features.ContentNegotiation
@@ -26,7 +26,7 @@ fun Application.module(testing: Boolean = false) {
 
     install(Koin) {
         slf4jLogger()
-        modules(template)
+        modules(calculations)
     }
 
     install(ContentNegotiation) {

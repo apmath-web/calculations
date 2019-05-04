@@ -10,7 +10,7 @@ import org.koin.dsl.module
 import org.koin.experimental.builder.singleBy
 
 
-val template = module {
+val calculations = module {
     singleBy<LoanInitServiceInterface, LoanInitService>()
     singleBy<PaymentServiceInterface, PaymentService>()
     singleBy<PaymentsServiceInterface, PaymentsService>()
