@@ -2,13 +2,14 @@ package com.apmath.calculations.application.v1.actions
 
 import com.apmath.calculations.application.v1.models.*
 import com.apmath.calculations.application.v1.validators.LoanBuilder
+import com.apmath.calculations.domain.payments.list.PaymentsServiceInterface
 import com.apmath.validation.simple.*
 import io.ktor.application.ApplicationCall
 import io.ktor.request.receive
 import io.ktor.response.respond
 import org.modelmapper.ModelMapper
 
-suspend fun ApplicationCall.v1GetAllPayments() {
+suspend fun ApplicationCall.v1GetAllPayments(paymentsService: PaymentsServiceInterface) {
     val loan = receive<Loan>()
 
     val validator = LoanBuilder()
