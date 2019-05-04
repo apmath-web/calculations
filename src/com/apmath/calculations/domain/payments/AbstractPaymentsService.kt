@@ -1,13 +1,8 @@
 package com.apmath.calculations.domain.payments
 
-import com.apmath.calculations.domain.OriginalLoanInterface
 import com.apmath.calculations.domain.data.Money
 import com.apmath.calculations.domain.data.Type
 import com.apmath.calculations.domain.init.LoanInitServiceInterface
-import com.apmath.calculations.domain.payments.Payment
-import com.apmath.calculations.domain.payments.PaymentInterface
-import com.apmath.calculations.domain.payments.PresentLoan
-import com.apmath.calculations.domain.payments.PresentLoanInterface
 import java.time.LocalDate
 import java.time.Year
 import java.time.YearMonth
