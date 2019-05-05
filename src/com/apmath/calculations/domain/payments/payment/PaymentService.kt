@@ -9,11 +9,12 @@ import com.apmath.calculations.domain.payments.Payment
 import com.apmath.calculations.domain.payments.payment.exceptions.*
 
 
-class PaymentService(loanInitService: LoanInitServiceInterface) : AbstractPaymentsService(loanInitService) {
+class PaymentService(loanInitService: LoanInitServiceInterface) : AbstractPaymentsService(loanInitService),
+    PaymentServiceInterface {
 
     // TODO add writeOf for loan without payment
 
-    fun writeOf(presentLoanWithPayment: PresentLoanWithPaymentInterface): PaymentWithInternalLoanDataInterface {
+    override fun writeOf(presentLoanWithPayment: PresentLoanWithPaymentInterface): PaymentWithInternalLoanDataInterface {
         val lastPayment = getLastPayment(presentLoanWithPayment)
         var nextPayment = getNextPayment(presentLoanWithPayment, lastPayment, Type.REGULAR)
         val paymentDate = presentLoanWithPayment.paymentDate
