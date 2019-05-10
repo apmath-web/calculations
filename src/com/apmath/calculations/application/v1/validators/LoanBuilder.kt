@@ -6,7 +6,7 @@ import com.apmath.validation.simple.DateValidator
 import com.apmath.validation.simple.RangeValidator
 
 
-class LoanBuilder : ObjectValidatorBuilder() {
+open class LoanBuilder : ObjectValidatorBuilder() {
     init {
         append("amount", ComparableValidator(min = 1L, max = 3000000000000000L))
         append("term", ComparableValidator(min = 6, max = 1200))

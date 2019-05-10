@@ -1,4 +1,4 @@
-package com.apmath.calculations.application.v1.models
+package com.apmath.calculations.application.v1.actions.models
 
 import com.apmath.calculations.domain.data.Money
 

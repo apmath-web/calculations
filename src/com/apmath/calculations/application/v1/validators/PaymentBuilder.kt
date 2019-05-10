@@ -11,7 +11,7 @@ class PaymentBuilder : ObjectValidatorBuilder() {
         append("amount", ComparableValidator(min = 1L, max = 3750000000000000L))
         append("remainCreditBody", ComparableValidator(min = 0L, max = 3000000000000000L))
         append("body", ComparableValidator(min = 0L, max = 3000000000000000L))
-        append("interest", ComparableValidator(min = 0L, max = 750000000000000L))
+        append("percent", ComparableValidator(min = 0L, max = 750000000000000L))
         append("fullEarlyRepayment", ComparableValidator(min = 1L, max = 3750000000000000L))
     }
 }

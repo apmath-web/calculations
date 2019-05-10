@@ -5,12 +5,12 @@ import com.apmath.validation.builders.ObjectValidatorBuilder
 
 class MixedBuilder(
     loanBuilder: LoanBuilder,
-    paymentBuilder: PaymentBuilder,
-    lastPaymentBuilder: PaymentBuilder
+    lastPaymentBuilder: PaymentBuilder,
+    paymentBuilder: PaymentBuilder
 ) : ObjectValidatorBuilder() {
     init {
         append("loan", loanBuilder.build())
-        append("payment", paymentBuilder.build())
         append("lastPayment", lastPaymentBuilder.build())
+        append("payment", paymentBuilder.build())
     }
 }
