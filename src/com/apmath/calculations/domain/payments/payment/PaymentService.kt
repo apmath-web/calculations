@@ -37,7 +37,7 @@ class PaymentService(loanInitService: LoanInitServiceInterface) : AbstractPaymen
             nextPayment = getNextPayment(presentLoanWithPayment, lastPayment, Type.REGULAR, paymentDate)
         } else {
             isPaymentLikeRegular = true
-            if (presentLoanWithPayment.paymentAmount != nextPayment.amount) {
+            if (presentLoanWithPayment.paymentAmount == nextPayment.amount) {
                 isPaymentRegular = true
             }
         }
