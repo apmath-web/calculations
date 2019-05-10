@@ -25,4 +25,23 @@ class PresentLoanWithPaymentMapper {
             payment.amount!!
         )
     }
+
+    fun map(loan: Loan, lastPayment: Payment, payment: Payment): PresentLoanWithPaymentInterface {
+
+        val agreementDate: LocalDate = LocalDate.parse(loan.date, DateTimeFormatter.ISO_DATE)
+        val lastPaymentDate: LocalDate = LocalDate.parse(lastPayment.date, DateTimeFormatter.ISO_DATE)
+        val paymentDate = LocalDate.parse(payment.date, DateTimeFormatter.ISO_DATE)
+
+        return PresentLoanWithPayment(
+            lastPayment.remainCreditBody!! - lastPayment.body!!,
+            loan.interest!!,
+            agreementDate,
+            lastPaymentDate,
+            loan.rounding!!,
+            loan.regularPaymentAmount!!,
+            loan.remainingTerm!!,
+            paymentDate,
+            payment.amount!!
+        )
+    }
 }
