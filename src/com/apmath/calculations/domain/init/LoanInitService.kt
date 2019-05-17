@@ -3,7 +3,7 @@ package com.apmath.calculations.domain.init
 import com.apmath.calculations.domain.OriginalLoanInterface
 import com.apmath.calculations.domain.data.Money
 import com.apmath.calculations.domain.init.exceptions.LoanAmountTooSmallException
-import com.apmath.calculations.domain.exceptions.RegularPaymentLessThanMinimalException
+import com.apmath.calculations.domain.init.exceptions.RegularPaymentLessThanMinimalException
 import kotlin.math.pow
 
 

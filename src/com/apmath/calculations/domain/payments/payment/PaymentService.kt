@@ -2,7 +2,6 @@ package com.apmath.calculations.domain.payments.payment
 
 import com.apmath.calculations.domain.data.Money
 import com.apmath.calculations.domain.data.Type
-import com.apmath.calculations.domain.exceptions.RegularPaymentLessThanMinimalException
 import com.apmath.calculations.domain.init.LoanInitServiceInterface
 import com.apmath.calculations.domain.payments.AbstractPaymentsService
 import com.apmath.calculations.domain.payments.Payment
@@ -11,8 +10,6 @@ import com.apmath.calculations.domain.payments.payment.exceptions.*
 
 class PaymentService(loanInitService: LoanInitServiceInterface) : AbstractPaymentsService(loanInitService),
     PaymentServiceInterface {
-
-    // TODO add writeOf for loan without payment
 
     override fun writeOf(presentLoanWithPayment: PresentLoanWithPaymentInterface): PaymentWithInternalLoanDataInterface {
         val lastPayment = getLastPayment(presentLoanWithPayment)
@@ -45,7 +42,7 @@ class PaymentService(loanInitService: LoanInitServiceInterface) : AbstractPaymen
         when {
             // Payment
             presentLoanWithPayment.paymentAmount < 100 && presentLoanWithPayment.paymentAmount != nextPayment.amount
-            -> throw RegularPaymentLessThanMinimalException()
+            -> throw PaymentLessThanMinimalException()
             presentLoanWithPayment.paymentAmount > nextPayment.fullEarlyRepayment
             -> throw PaymentMoreThanFullEarlyRepaimentException()
             presentLoanWithPayment.paymentAmount < presentLoanWithPayment.regularPaymentAmount

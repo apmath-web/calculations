@@ -1,6 +1,7 @@
 package com.apmath.calculations.application.v1.actions
 
 import com.apmath.calculations.application.v1.actions.models.Loan
+import com.apmath.calculations.application.v1.exceptions.BadRequestValidationException
 import com.apmath.calculations.application.v1.mappers.incoming.OriginalLoanMapper
 import com.apmath.calculations.application.v1.mappers.outgoing.PaymentsMapper
 import com.apmath.calculations.application.v1.validators.OriginalLoanBuilder
@@ -15,7 +16,7 @@ suspend fun ApplicationCall.v1GetAllPayments(paymentsService: PaymentsServiceInt
     val validator = OriginalLoanBuilder().build()
 
     if (!validator.validate(loan)) {
-        respond(validator.messages)
+        throw BadRequestValidationException(validator)
     }
 
     val originalLoan = OriginalLoanMapper().map(loan)

@@ -1,6 +1,7 @@
 package com.apmath.calculations.application.v1.actions
 
-import com.apmath.calculations.application.v1.actions.models.*
+import com.apmath.calculations.application.v1.actions.models.Mixed
+import com.apmath.calculations.application.v1.exceptions.BadRequestValidationException
 import com.apmath.calculations.application.v1.mappers.incoming.PresentLoanMapper
 import com.apmath.calculations.application.v1.mappers.outgoing.PaymentsMapper
 import com.apmath.calculations.application.v1.validators.LoanBuilder
@@ -40,7 +41,7 @@ suspend fun ApplicationCall.v1GetRemainPayments(paymentsService: PaymentsService
         .build()
 
     if (!validator.validate(mixed)) {
-        respond(validator.messages)
+        throw BadRequestValidationException(validator)
     }
 
     val presentLoan = PresentLoanMapper().map(mixed.loan!!, mixed.lastPayment!!)
