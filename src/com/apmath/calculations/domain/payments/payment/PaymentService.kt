@@ -44,7 +44,7 @@ class PaymentService(loanInitService: LoanInitServiceInterface) : AbstractPaymen
             presentLoanWithPayment.paymentAmount < 100 && presentLoanWithPayment.paymentAmount != nextPayment.amount
             -> throw PaymentLessThanMinimalException()
             presentLoanWithPayment.paymentAmount > nextPayment.fullEarlyRepayment
-            -> throw PaymentMoreThanFullEarlyRepaimentException()
+            -> throw PaymentMoreThanFullEarlyRepaimentException(nextPayment.fullEarlyRepayment)
             presentLoanWithPayment.paymentAmount < presentLoanWithPayment.regularPaymentAmount
                     && presentLoanWithPayment.regularPaymentAmount < nextPayment.fullEarlyRepayment
             -> throw PaymentLessThanRegularException()

@@ -70,6 +70,6 @@ suspend fun ApplicationCall.v1GetNextPayment(paymentService: PaymentServiceInter
     } catch (e: PaymentLessThanRegularException) {
         throw BadRequestException("Payment amount can not be less than regular payment amount")
     } catch (e: PaymentMoreThanFullEarlyRepaimentException) {
-        throw BadRequestException("Payment amount cannot be more than credit full early repaiment amount")
+        throw BadRequestException("Payment amount cannot be more than credit full early repaiment amount = ${e.fullEarlyRepayment}")
     }
 }
